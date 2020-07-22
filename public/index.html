@@ -24,6 +24,40 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <script>
+      // define global namespace for tracking and other third party scripts to integrate with
+      // check out the next <script> tag for an example of how tracking will leverage this!
+      window.__YOUR_GLOBAL_NAMESPACE__ = {
+        featureFlagsQueue: {
+          cancelButtonTest: {},
+        },
+      }
+    </script>
+    <script>
+      // example racing-condition script!
+      ;(() => {
+        const featureFlag = {
+          name: 'coloredButtonTest',
+          data: {
+            buttonColor: 'firebrick',
+          },
+        }
+
+        // push the event onto the queue in case the featureFlagsContext hasn't started up yet
+        if (
+          window.__YOUR_GLOBAL_NAMESPACE__ &&
+          window.__YOUR_GLOBAL_NAMESPACE__.featureFlagsQueue
+        ) {
+          window.__YOUR_GLOBAL_NAMESPACE__.featureFlagsQueue[featureFlag.name] =
+            featureFlag.data
+        }
+
+        // emit an event in case the featureFlagsContext has already started
+        const buttonTest = new Event('globalNamespace.addFeatureFlag')
+        buttonTest.featureFlag = featureFlag
+        window.dispatchEvent(buttonTest)
+      })()
+    </script>
     <title>React App</title>
   </head>
   <body>

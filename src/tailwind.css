@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Look Ma, no CSS! */
+
+/*
+
+Tailwind is my favorite CSS workflow these days - ESPECIALLY for React apps.
+You spend a little time defining the colors, argins, fonts, etc for your theme
+and the rest of the time, you spend just consuming the utility classes it generates.
+
+It basically equates to a CSS-less UI design workflow.
+- You never target CSS to specific elements
+- Components can be moved anywhere in the tree with you CSS side effects
+- Building out a component library that extends the utility classes is super easy
+
+*/

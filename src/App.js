@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import DisplayAvailableFeatureFlags from './components/DisplayAvailableFeatureFlags'
+import ExampleFeatureFlagUsage from './components/ExampleFeatureFlagUsage'
+import ExampleMidExperienceEligibility from './components/ExampleMidExperienceEligibility'
+import { FeatureFlagContextProvider } from './contexts/FeatureFlagContext'
+import './tailwind.output.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <FeatureFlagContextProvider>
+      <div className="m-8 text-center">
+        <h1 className="text-xl font-bold mb-4">Feature Flag Example</h1>
+        <DisplayAvailableFeatureFlags />
+        <ExampleFeatureFlagUsage />
+        <ExampleMidExperienceEligibility />
+      </div>
+    </FeatureFlagContextProvider>
+  )
 }
 
-export default App;
+export default App
