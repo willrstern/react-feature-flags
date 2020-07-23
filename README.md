@@ -1,5 +1,5 @@
 # React abstracted-feature-flags
-
+Take a look at [App.js](https://github.com/willrstern/react-feature-flags/blob/master/src/App.js) for a few visual examples of the implementation.
 ## Core Ideas
 
 - The View layer should not be aware of any feature flag provider(s)
