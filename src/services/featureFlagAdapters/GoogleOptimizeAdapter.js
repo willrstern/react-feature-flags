@@ -4,7 +4,7 @@ export default class GoogleOptimizeFeatureFlagAdapter {
     - pretend we've emitted some event that told Google Optimize we're eligible for something
     - pretend to enter user into "baseline" or "button"
     */
-    const variation = !!Math.round(Math.random(1)) ? 'baseline' : 'button'
+    const variation = !!Math.round(Math.random()) ? 'baseline' : 'button'
     /*
     - now Google Tag Manager will fire this JS tag on the page
     ...let's make it wait 1000ms for effect
